@@ -309,6 +309,7 @@
             box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
             overflow: hidden;
             z-index: 1000;
+            transition: height 0.3s ease;
         }
 
         #terminal-header {
@@ -359,6 +360,29 @@
             margin: 0;
             white-space: pre-wrap;
             word-wrap: break-word;
+        }
+
+        /* Minimize Button Styles */
+        .terminal-button.minimize {
+            background-color: transparent;
+            color: #00ff9d;
+            font-size: 1.2rem;
+            line-height: 0.8;
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        .terminal-button.minimize:hover {
+            color: #FFD700;
+        }
+
+        /* Minimized State */
+        #terminal.minimized {
+            height: 40px; /* Only show the header */
+        }
+
+        #terminal.minimized #terminal-body {
+            display: none; /* Hide the body when minimized */
         }
     </style>
 </head>
@@ -448,10 +472,8 @@
     <!-- Interactive Terminal -->
     <div id="terminal">
         <div id="terminal-header">
-            <span class="terminal-button red"></span>
-            <span class="terminal-button yellow"></span>
-            <span class="terminal-button green"></span>
             <span class="terminal-title">Mission Control</span>
+            <span id="minimize-button" class="terminal-button minimize">−</span>
         </div>
         <div id="terminal-body">
             <pre id="terminal-output"></pre>
@@ -549,6 +571,14 @@
 
         // Update the terminal every 2 seconds
         setInterval(updateTerminal, 2000);
+
+        // Minimize Terminal Functionality
+        const minimizeButton = document.getElementById('minimize-button');
+        const terminal = document.getElementById('terminal');
+
+        minimizeButton.addEventListener('click', () => {
+            terminal.classList.toggle('minimized');
+        });
     </script>
 </body>
 </html>
