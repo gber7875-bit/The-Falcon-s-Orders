@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Falcon's Orders</title>
-    <link rel="icon" type="image/jpeg" href="Brand.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -228,7 +227,8 @@
         .telegram-button:hover {
             background: #006699;
         }
- /* Circular Image Styles */
+
+        /* Circular Image Styles */
         .image-container {
             position: relative;
             overflow: hidden;
@@ -241,8 +241,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        /* Branding Image */
- .branding-image {
+        }
+
+        .branding-image {
             width: 100%;
             height: 100%;
             object-fit: cover; /* Ensures the image fills the circle */
@@ -263,8 +264,10 @@
             <a href="#start-now" class="nav-link">Start Now</a>
         </nav>
 
-        <!-- Branding Image -->
-        <img src="Brand.jpeg" alt="Branding Image" class="branding-image">
+        <!-- Circular Branding Image -->
+        <div class="image-container">
+            <img src="Brand.jpeg" alt="Branding Image" class="branding-image">
+        </div>
     </div>
 
     <div class="main-content">
