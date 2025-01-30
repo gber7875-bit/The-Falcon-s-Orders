@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supported Stores - Falcon's Requisition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles from index page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Roboto Mono', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .glitch-container {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Store List Specific Styles */
+        .store-list-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 1rem;
+            background: #00141e;
+            border: 1px solid #00ff9d;
+            border-radius: 4px;
+            color: #00ff9d;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .stores-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #00141e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .stores-table th {
+            background: #002837;
+            color: #00ff9d;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .stores-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #003747;
+        }
+
+        .stores-table tr:nth-child(even) {
+            background: #001a25;
+        }
+
+        .store-name {
+            color: #00ff9d;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .store-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            background: #004455;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fee-badge {
+            background: #00ff9d22;
+            color: #00ff9d;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div id="currency-container"></div>
+
+    <div class="glitch-container">
+        <h1 class="logo" data-text="SUPPORTED STORES">SUPPORTED STORES</h1>
+        <nav>
+            <a href="index.html" class="nav-link">← Back to Services</a>
+        </nav>
+    </div>
+
+    <div class="store-list-container">
+        <input type="text" class="search-bar" placeholder="Search for stores...">
+
+        <table class="stores-table">
+            <thead>
+                <tr>
+                    <th>Store Name</th>
+                    <th>Max Order</th>
+                    <th>Max Items</th>
+                    <th>Timeframe</th>
+                    <th>Rebill</th>
+                    <th>Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="store-name">
+                            <div class="store-icon">🛍️</div>
+                            Example Store 1
+                        </div>
+                    </td>
+                    <td>$1,500</td>
+                    <td>3</td>
+                    <td>24-48h</td>
+                    <td>Yes</td>
+                    <td><span class="fee-badge">15%</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="store-name">
+                            <div class="store-icon">📦</div>
+                            Example Store 2
+                        </div>
+                    </td>
+                    <td>$800</td>
+                    <td>5</td>
+                    <td>Instant</td>
+                    <td>No</td>
+                    <td><span class="fee-badge">20%</span></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Simple search functionality
+        document.querySelector('.search-bar').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('.stores-table tbody tr');
+            
+            rows.forEach(row => {
+                const storeName = row.querySelector('.store-name').textContent.toLowerCase();
+                row.style.display = storeName.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Currency animation (same as index page)
+        const currencies = ['₿', '$', 'د.إ'];
+        function createCurrency() {
+            const currency = document.createElement('div');
+            currency.className = 'currency';
+            currency.textContent = currencies[Math.floor(Math.random() * currencies.length)];
+            const side = Math.random() > 0.5 ? 'left' : 'right';
+            currency.style[side] = `${Math.random() * 20}px`;
+            currency.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            currency.style.fontSize = `${Math.random() * 2 + 1}rem`;
+            document.getElementById('currency-container').appendChild(currency);
+            setTimeout(() => currency.remove(), 5000);
+        }
+        setInterval(createCurrency, 500);
+    </script>
+</body>
+</html>
