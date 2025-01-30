@@ -6,6 +6,49 @@
     <title>The Falcon's Orders</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono:wght@300;500&display=swap" rel="stylesheet">
     <style>
+        /* Terminal Styles */
+.cyber-terminal {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ff9d;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    color: #00ff9d;
+    overflow: hidden;
+}
+
+.terminal-content {
+    height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.terminal-header {
+    border-bottom: 1px solid #00ff9d;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.typewriter {
+    border-right: 2px solid #00ff9d;
+    animation: typing 1s steps(40) infinite;
+}
+
+@keyframes typing {
+    from { border-right-color: transparent; }
+    to { border-right-color: #00ff9d; }
+}
+
+.terminal-command {
+    color: #FFD700;
+    opacity: 0.7;
+}
         * {
             margin: 0;
             padding: 0;
@@ -146,6 +189,14 @@
             position: relative;
             z-index: 2;
         }
+<!-- Terminal After the First Paragraph -->
+<div class="cyber-terminal">
+    <div class="terminal-content">
+        <div class="terminal-header">// SYSTEM INITIALIZED - FALCON OS v1.3.7</div>
+        <div id="terminal-output"></div>
+        <div class="typewriter">></div>
+    </div>
+</div>
 
         .title {
             font-size: 2rem;
@@ -297,6 +348,81 @@
     </style>
 </head>
 <body>
+    // Terminal messages
+const missionUpdates = [
+    // Refunding Service Updates
+    "INITIATING CHARGEBACK SEQUENCE...",
+    "PROCESSING AMAZON REFUND: ORDER #XKJ-4892",
+    "BYPASSING FRAUD DETECTION SYSTEMS...",
+    "GENERATING VIRTUAL CREDIT CARD...",
+    "ANONYMIZING PAYMENT FOOTPRINT...",
+    "REFUND SUCCESS RATE: 96.7%...",
+    "ROUTING THROUGH PROXY SERVERS...",
+    "ESTABLISHING MULTI-LAYER ENCRYPTION...",
+    "SCRAMBLING DIGITAL FINGERPRINT...",
+
+    // Boxing Service Updates
+    "GENERATING FTID v3.1 PROTOCOL...",
+    "RE-ROUTING PACKAGE #DG-8823...",
+    "SPOOFING CARRIER GPS COORDINATES...",
+    "INJECTING FAKE SCAN DATA...",
+    "CLONING SHIPPING LABELS...",
+    "MASKING PACKAGE WEIGHT...",
+    "SYNCING WITH DROP POINT ALPHA...",
+    "OBFUSCATING RETURN ADDRESS...",
+    "ACTIVATING GHOST DELIVERY PROTOCOL...",
+
+    // B4U Service Updates
+    "SECURING LIMITED EDITION SNKRS...",
+    "BOOKING PRIVATE JET CHARTER...",
+    "ACQUIRING LOUIS VUITTON x NBA COLLAB...",
+    "RESERVING 5-STAR SUITE: BURJ AL ARAB...",
+    "PROCURING VIP CONCERT TICKETS...",
+    "CLONING HIGH-VALUE USER ACCOUNTS...",
+    "BYPASSING GEO-RESTRICTIONS...",
+    "ESTABLISHING SHELL PURCHASE ACCOUNT...",
+    "ACTIVATING PREMIUM MEMBERSHIPS...",
+
+    // System Operations
+    "PATCHING SECURITY VULNERABILITIES...",
+    "RUNNING ANTI-DETECTION SCRIPTS...",
+    "MONITORING LEAK CHANNELS...",
+    "PURGING LOG FILES...",
+    "UPDATING AI DECISION MATRIX...",
+    "CALIBRATING RISK ASSESSMENT MODULE...",
+    "TESTING FIREWALL INTEGRITY...",
+    "ROTATING ENCRYPTION KEYS...",
+    "OPTIMIZING DARKNET ROUTING...",
+    
+    // Dramatic Effects
+    "ACCESS GRANTED: MAINFRAME_03...",
+    "WARNING: INTRUSION DETECTED...",
+    "COUNTERMEASURES ENGAGED...",
+    "ACTIVATING KILLSWITCH PROTOCOL...",
+    "INITIALIZING SELF-DESTRUCT SEQUENCE...",
+    "CRYPTO-LOCKER ENGAGED...",
+    "REWRITING SECURITY CERTIFICATES...",
+    "DEPLOYING SMOKESCREEN PROTOCOL...",
+    "NEURAL NETWORK LEARNING: 87%..."
+];
+
+// Terminal animation
+let terminalLine = 0;
+function updateTerminal() {
+    const output = document.getElementById('terminal-output');
+    const newLine = document.createElement('div');
+    newLine.innerHTML = `<span class="terminal-command">${missionUpdates[Math.floor(Math.random() * missionUpdates.length)]}</span>`;
+    output.appendChild(newLine);
+    
+    // Keep only last 5 lines
+    if(output.children.length > 5) output.removeChild(output.firstChild);
+    
+    // Auto-scroll
+    output.scrollTop = output.scrollHeight;
+}
+
+// Start terminal updates
+setInterval(updateTerminal, 3000);
     <div class="background-pattern"></div>
     <div id="currency-container"></div>
 
