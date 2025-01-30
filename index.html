@@ -36,9 +36,7 @@
             position: relative;
             margin-bottom: 2rem;
         }
-
-.logo::before,
-           .logo::after {
+.logo::after {
             content: attr(data-text);
             position: absolute;
             left: 5px;
@@ -61,6 +59,7 @@
             90% { clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%); }
             100% { clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%); }
         }
+.logo::before,
 .logo::after {
     content: attr(data-text);
     position: absolute;
