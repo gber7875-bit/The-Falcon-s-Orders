@@ -228,18 +228,25 @@
         .telegram-button:hover {
             background: #006699;
         }
-
-        /* Branding Image */
-        .branding-image {
-            width: 100%;
-            max-width: 800px;
-            Height: auto;
+ /* Circular Image Styles */
+        .image-container {
+            position: relative;
+            overflow: hidden;
             margin: 2rem auto;
-            display: block;
-            border-radius: 8px;
-            object-fit: contain;
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
-            max-height: 400px; /* Adjust as needed */
+            width: 200px; /* Adjust the size as needed */
+            height: 200px; /* Should match the width for a perfect circle */
+            border-radius: 50%; /* Makes the container circular */
+            border: 2px solid #00ff9d; /* Optional: Adds a circular border */
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.3); /* Optional: Adds a glow effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        /* Branding Image */
+ .branding-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image fills the circle */
+            border-radius: 50%; /* Makes the image circular */
         }
     </style>
 </head>
