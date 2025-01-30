@@ -25,7 +25,7 @@
             text-align: center;
             padding: 2rem;
             position: relative;
-            z-index: 2; /* Ensure content is above the falling currency */
+            z-index: 2;
         }
 
         .logo {
@@ -100,7 +100,7 @@
             padding: 0 2rem;
             text-align: center;
             position: relative;
-            z-index: 2; /* Ensure content is above the falling currency */
+            z-index: 2;
         }
 
         .title {
@@ -151,35 +151,68 @@
 
         /* Falling Currency Styles */
         .currency {
-            position: fixed; /* Use fixed positioning to keep it in the background */
+            position: fixed;
             font-size: 1.5rem;
             color: #00ff9d;
             opacity: 0.7;
             animation: fall linear infinite;
-            z-index: 1; /* Ensure it stays behind the main content */
+            z-index: 1;
         }
 
         @keyframes fall {
             0% { transform: translateY(-100px); }
             100% { transform: translateY(100vh); }
         }
+
+        /* Services Section Styles */
+        .services {
+            margin-top: 4rem;
+            text-align: left;
+        }
+
+        .service {
+            margin-bottom: 3rem;
+        }
+
+        .service h3 {
+            font-size: 1.5rem;
+            color: #00ff9d;
+            margin-bottom: 1rem;
+        }
+
+        .service p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #a0a0a0;
+        }
+
+        .view-stores-btn {
+            background: #00ff9d22;
+            color: #00ff9d;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #00ff9d;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .view-stores-btn:hover {
+            background: #00ff9d;
+            color: #0a0a0a;
+        }
     </style>
 </head>
 <body>
     <div class="background-pattern"></div>
-
-    <!-- Falling Currency Elements -->
     <div id="currency-container"></div>
 
     <div class="glitch-container">
         <h1 class="logo" data-text="FALCON'S REQUISITION">FALCON'S REQUISITION</h1>
-        <h1 class="logo" data-text="The Falcon's Orders">The Falcon's Orders</h1>
-
         <nav>
             <a href="#" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Services</a>
-            <a href="#" class="nav-link">Protocols</a>
-            <a href="#" class="nav-link">Contact</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#start-now" class="nav-link">Start Now</a>
         </nav>
     </div>
 
@@ -191,6 +224,34 @@
             and restore lost assets with surgical precision.
         </p>
         <button class="cta-button">Initiate Requisition</button>
+
+        <!-- Services Section -->
+        <div id="services" class="services">
+            <div class="service">
+                <h3>Refunding Service</h3>
+                <p>
+                    Our Refunding Service ensures you get your money back from compromised transactions. 
+                    We use advanced AI and secure protocols to reclaim your funds quickly and efficiently.
+                </p>
+                <button class="view-stores-btn" onclick="window.location.href='storelist.html'">View Supported Stores →</button>
+            </div>
+
+            <div class="service">
+                <h3>Boxing Service</h3>
+                <p>
+                    The Boxing Service provides secure packaging and delivery of high-value items. 
+                    We ensure your items are protected and delivered discreetly.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>BUY-FOR-YOU (B4U) Service</h3>
+                <p>
+                    Our B4U Service handles purchases on your behalf, ensuring you get the best deals 
+                    while maintaining your privacy and security.
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -202,22 +263,16 @@
             const currency = document.createElement('div');
             currency.className = 'currency';
             currency.textContent = currencies[Math.floor(Math.random() * currencies.length)];
-
-            // Position currency on the left or right side
             const side = Math.random() > 0.5 ? 'left' : 'right';
-            currency.style[side] = `${Math.random() * 20}px`; // Random offset from the edge
-            currency.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random fall speed
-            currency.style.fontSize = `${Math.random() * 2 + 1}rem`; // Random size
+            currency.style[side] = `${Math.random() * 20}px`;
+            currency.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            currency.style.fontSize = `${Math.random() * 2 + 1}rem`;
             document.getElementById('currency-container').appendChild(currency);
-
-            // Remove currency element after it falls off the screen
-            setTimeout(() => {
-                currency.remove();
-            }, 5000); // Adjust timeout based on animation duration
+            setTimeout(() => currency.remove(), 5000);
         }
 
         // Generate falling currencies at intervals
-        setInterval(createCurrency, 500); // Adjust interval for density
+        setInterval(createCurrency, 500);
     </script>
 </body>
 </html>
