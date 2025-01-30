@@ -168,21 +168,6 @@
                 row.style.display = storeName.includes(searchTerm) ? '' : 'none';
             });
         });
-
-        // Currency animation (same as index page)
-        const currencies = ['₿', '$', 'د.إ'];
-        function createCurrency() {
-            const currency = document.createElement('div');
-            currency.className = 'currency';
-            currency.textContent = currencies[Math.floor(Math.random() * currencies.length)];
-            const side = Math.random() > 0.5 ? 'left' : 'right';
-            currency.style[side] = `${Math.random() * 20}px`;
-            currency.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            currency.style.fontSize = `${Math.random() * 2 + 1}rem`;
-            document.getElementById('currency-container').appendChild(currency);
-            setTimeout(() => currency.remove(), 5000);
-        }
-        setInterval(createCurrency, 500);
     </script>
 </body>
 </html>
