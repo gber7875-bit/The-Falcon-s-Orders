@@ -14,8 +14,8 @@
         }
 
         body {
-            background-color: #0a0a0a;
-            color: #e0e0e0;
+            background-color: #0a0a0a; /* Deep black background */
+            color: #e0e0e0; /* Light gray text */
             font-family: 'Roboto Mono', monospace;
             min-height: 100vh;
             overflow-x: hidden;
@@ -29,6 +29,41 @@
             z-index: 2;
         }
 
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #FFD700; /* Metallic gold */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Gold glow */
+        }
+
+        .nav-link {
+            color: #e0e0e0; /* Light gray for links */
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #FFD700; /* Gold on hover */
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FFD700; /* Gold underline */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
         /* Store List Specific Styles */
         .store-list-container {
             max-width: 1200px;
@@ -39,25 +74,30 @@
         .search-bar {
             width: 100%;
             padding: 1rem;
-            background: #00141e;
-            border: 1px solid #00ff9d;
+            background: #00141e; /* Dark navy blue background */
+            border: 1px solid #FFD700; /* Gold border */
             border-radius: 4px;
-            color: #00ff9d;
+            color: #FFD700; /* Gold text */
             margin-bottom: 2rem;
             font-size: 1.1rem;
+        }
+
+        .search-bar::placeholder {
+            color: #FFD700; /* Gold placeholder text */
+            opacity: 0.7;
         }
 
         .stores-table {
             width: 100%;
             border-collapse: collapse;
-            background: #00141e;
+            background: #00141e; /* Dark navy blue background */
             border-radius: 8px;
             overflow: hidden;
         }
 
         .stores-table th {
-            background: #002837;
-            color: #00ff9d;
+            background: #002837; /* Slightly lighter navy blue for headers */
+            color: #FFD700; /* Gold text */
             padding: 1.2rem;
             text-align: left;
             font-weight: 500;
@@ -67,15 +107,15 @@
 
         .stores-table td {
             padding: 1rem;
-            border-bottom: 1px solid #003747;
+            border-bottom: 1px solid #003747; /* Darker navy blue for borders */
         }
 
         .stores-table tr:nth-child(even) {
-            background: #001a25;
+            background: #001a25; /* Alternate row color */
         }
 
         .store-name {
-            color: #00ff9d;
+            color: #FFD700; /* Gold text for store names */
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -85,15 +125,15 @@
             width: 30px;
             height: 30px;
             border-radius: 4px;
-            background: #004455;
+            background: #004455; /* Dark teal for icons */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .fee-badge {
-            background: #00ff9d22;
-            color: #00ff9d;
+            background: #FFD70022; /* Semi-transparent gold background */
+            color: #FFD700; /* Gold text */
             padding: 0.3rem 0.6rem;
             border-radius: 4px;
             font-size: 0.9rem;
@@ -139,7 +179,7 @@
                     <td>24-48h</td>
                     <td>Yes</td>
                     <td><span class="fee-badge">15%</span></td>
-                    <td>COntact me beforehand</td>
+                    <td>Contact me beforehand</td>
                 </tr>
                 <tr>
                     <td>
@@ -153,7 +193,7 @@
                     <td>Instant</td>
                     <td>No</td>
                     <td><span class="fee-badge">20%</span></td>
-                    <td>COntact me beforehand</td>
+                    <td>Contact me beforehand</td>
                 </tr>
                 <!-- Add more rows as needed -->
             </tbody>
