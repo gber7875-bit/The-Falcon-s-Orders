@@ -201,6 +201,40 @@
             background: #00ff9d;
             color: #0a0a0a;
         }
+
+        /* Start Now Section */
+        #start-now {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .telegram-button {
+            background: #0088cc;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        .telegram-button:hover {
+            background: #006699;
+        }
+
+        /* Branding Image */
+        .branding-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -208,13 +242,16 @@
     <div id="currency-container"></div>
 
     <div class="glitch-container">
-    <h1 class="logo" data-text="The Falcon's Orders">The Falcon's Orders</h1>
+        <h1 class="logo" data-text="The Falcon's Orders">The Falcon's Orders</h1>
 
         <nav>
             <a href="#" class="nav-link">Home</a>
             <a href="#services" class="nav-link">Services</a>
             <a href="#start-now" class="nav-link">Start Now</a>
         </nav>
+
+        <!-- Branding Image -->
+        <img src="branding-image.jpg" alt="Branding Image" class="branding-image">
     </div>
 
     <div class="main-content">
@@ -250,6 +287,13 @@
                     while maintaining your privacy and security.
                 </p>
             </div>
+        </div>
+
+        <!-- Start Now Section -->
+        <div id="start-now">
+            <h2 class="title">Ready to Start?</h2>
+            <p class="description">Contact us via Telegram to get started with our services.</p>
+            <button class="telegram-button" onclick="window.location.href='https://t.me/yourtelegramusername'">Contact on Telegram</button>
         </div>
     </div>
 
