@@ -378,12 +378,34 @@
 
         /* Minimized State */
         #terminal.minimized {
-            height: 40px; /* Only show the header */
+       width: 200px;  /* Smaller width */
+        height: 40px;  /* Same height as header */
+        bottom: 10px;  /* Adjust position if needed */
+        right: 10px;
+        overflow: visible;
         }
 
-        #terminal.minimized #terminal-body {
-            display: none; /* Hide the body when minimized */
-        }
+         #terminal.minimized #terminal-header {
+        padding: 4px 8px;
+        background-color: #0a0a0a;
+        border: 1px solid #00ff9d;
+        box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+    }
+         #terminal.minimized .terminal-title {
+        font-size: 0.8rem;
+        color: #00ff9d;
+        text-shadow: 0 0 8px rgba(0, 255, 157, 0.4);
+    }
+
+    #terminal.minimized .terminal-button.minimize {
+        font-size: 1rem;
+        line-height: 0.6;
+    }
+
+    /* Smooth transitions for scaling */
+    #terminal {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     </style>
 </head>
 <body>
