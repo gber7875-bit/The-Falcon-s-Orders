@@ -453,49 +453,108 @@
                 </p>
             </div>
 
-           <!-- Updated B4U Service Section -->
+<!-- Add this button after the B4U Service section -->
 <div class="service">
     <h3>BUY-FOR-YOU (B4U) Service</h3>
     <p>
         At The Falcon’s Orders, we act as your personal procurement specialists, securing exclusive items, travel bookings, and hard-to-get products while ensuring discretion and efficiency. Whether you need a hotel stay, plane ticket, or a limited-release item, we handle every order with precision.
     </p>
-    <button class="view-stores-btn" onclick="showGallery()" style="margin-left: 0;">View Success Cases →</button>
+    <button class="view-stores-btn" onclick="showGallery()">View Success Cases →</button>
 </div>
 
-<!-- Updated Gallery Modal CSS -->
+<!-- Add this gallery modal at the bottom of the body (before terminal) -->
+<div id="gallery-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeGallery()">&times;</span>
+        <h3>Operation Success Gallery</h3>
+        <div class="gallery-grid">
+            <!-- Add your images here -->
+            <img src="success1.jpg" alt="Success Case 1">
+            <img src="success2.jpg" alt="Success Case 2">
+            <img src="success3.jpg" alt="Success Case 3">
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS to the style section -->
 <style>
     /* Gallery Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow: auto;
+    }
+
     .modal-content {
         background-color: #0a0a0a;
-        margin: 5% 0 5% 5%;
+        margin: 5% auto;
         padding: 2rem;
         border: 1px solid #00ff9d;
-        width: 90%;
+        width: 80%;
         max-width: 1200px;
         position: relative;
         box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
-        text-align: left;
+    }
+
+    .close {
+        color: #00ff9d;
+        float: right;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .close:hover {
+        color: #FFD700;
     }
 
     .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
         margin-top: 1.5rem;
-        justify-items: start;
     }
 
     .gallery-grid img {
         width: 100%;
-        max-width: 400px;
-        height: 250px;
+        height: 200px;
         object-fit: cover;
         border: 2px solid #FFD700;
         border-radius: 4px;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+        transform: scale(1.05);
+        cursor: pointer;
     }
 </style>
+
+<!-- Add this JavaScript to the script section -->
+<script>
+    // Gallery Functions
+    function showGallery() {
+        document.getElementById('gallery-modal').style.display = 'block';
+    }
+
+    function closeGallery() {
+        document.getElementById('gallery-modal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('gallery-modal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
 
         <!-- Start Now Section -->
         <div id="start-now">
