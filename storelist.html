@@ -64,42 +64,6 @@
             width: 100%;
         }
 
-        /* Supported Countries Section */
-        .supported-countries {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .country-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .country-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100px;
-        }
-
-        .country-flag {
-            width: 50px;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .country-name {
-            margin-top: 0.5rem;
-            font-size: 1rem;
-            color: #FFD700; /* Gold text */
-        }
-
         /* Store List Specific Styles */
         .store-list-container {
             max-width: 1200px;
@@ -187,9 +151,75 @@
         </nav>
     </div>
 
-    <!-- Supported Countries Section -->
-    <section class="supported-countries">
-        <h2>Supported Countries</h2>
-        <div class="country
-::contentReference[oaicite:0]{index=0}
- 
+    <div class="store-list-container">
+        <input type="text" class="search-bar" placeholder="Search for stores...">
+
+        <table class="stores-table">
+            <thead>
+                <tr>
+                    <th>Store Name</th>
+                    <th>Max Order</th>
+                    <th>Max Items</th>
+                    <th>Timeframe</th>
+                    <th>Rebill</th>
+                    <th>Fee</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="store-name">
+                            <div class="store-flags">🇺🇸</div>
+                            <div class="store-flags">🇺🇸</div>
+                            <div class="store-flags">🇺🇸</div>
+                            Amazon
+                        </div>
+                    </td>
+                    <td>$20000</td>
+                    <td>5</td>
+                    <td>1-5d</td>
+                    <td>No</td>
+                    <td><span class="fee-badge">25%</span></td>
+                    <td> Items must be shipped by .
+                         Lockers|Counters orders accepted.
+                         OTP orders accepted.
+                         No Previous OFM|Closed accounts.
+                         No Reships.
+                         No previous refunds.
+                         Aged Account</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="store-name">
+                            <div class="store-flags">🇺🇸</div>
+                            Samsung
+                        </div>
+                    </td>
+                    <td>$3000</td>
+                    <td>2</td>
+                    <td>0-14d</td>
+                    <td>No</td>
+                    <td><span class="fee-badge">15%</span></td>
+                    <td>Create account, Fresh works, Repeatable, Phone Fastest</td>
+                </tr>
+                
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Simple search functionality
+        document.querySelector('.search-bar').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('.stores-table tbody tr');
+            
+            rows.forEach(row => {
+                const storeName = row.querySelector('.store-name').textContent.toLowerCase();
+                row.style.display = storeName.includes(searchTerm) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
